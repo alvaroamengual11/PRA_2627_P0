@@ -72,3 +72,6 @@ Testing/
 
 # Esta practica usa un Makefile escrito a mano: debe estar en el repositorio.
 !Makefile
+
+# Material auxiliar local
+ejercicios.zip

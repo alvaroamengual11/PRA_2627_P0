@@ -1,32 +1,26 @@
 #include <iostream>
 #include "RoboticArm.h"
 
+using namespace std;
+
 int main() {
-    RoboticArm arm;
+    RoboticArm brazo;
 
-    std::cout << "Estado inicial: (" << arm.getX() << ", "
-              << arm.getY() << ", " << arm.getZ() << ")"
-              << "; sujetando objeto: "
-              << (arm.isHoldingObject() ? "si" : "no") << std::endl;
+    brazo.move(1, 2, 3);
+    brazo.grab();
 
-    arm.move(1.0, 2.0, 3.0);
-    arm.grab();
-    std::cout << "Tras mover y coger: (" << arm.getX() << ", "
-              << arm.getY() << ", " << arm.getZ() << ")"
-              << "; sujetando objeto: "
-              << (arm.isHoldingObject() ? "si" : "no") << std::endl;
+    cout << "Posicion: " << brazo.getX() << ", "
+         << brazo.getY() << ", " << brazo.getZ() << endl;
 
-    arm.move(4.0, 5.0, 6.0);
-    std::cout << "Tras transportar: (" << arm.getX() << ", "
-              << arm.getY() << ", " << arm.getZ() << ")"
-              << "; sujetando objeto: "
-              << (arm.isHoldingObject() ? "si" : "no") << std::endl;
+    if (brazo.isHoldingObject()) {
+        cout << "El brazo tiene un objeto." << endl;
+    }
 
-    arm.release();
-    std::cout << "Tras soltar: (" << arm.getX() << ", "
-              << arm.getY() << ", " << arm.getZ() << ")"
-              << "; sujetando objeto: "
-              << (arm.isHoldingObject() ? "si" : "no") << std::endl;
+    brazo.release();
+
+    if (!brazo.isHoldingObject()) {
+        cout << "El brazo ha soltado el objeto." << endl;
+    }
 
     return 0;
 }

@@ -9,8 +9,7 @@ private:
     bool holdingObject;
 
 public:
-    RoboticArm(double initialX = 0.0, double initialY = 0.0,
-               double initialZ = 0.0);
+    RoboticArm();
 
     double getX() const;
     double getY() const;

@@ -1,7 +1,10 @@
 #include "RoboticArm.h"
 
-RoboticArm::RoboticArm(double initialX, double initialY, double initialZ)
-    : x(initialX), y(initialY), z(initialZ), holdingObject(false) {
+RoboticArm::RoboticArm() {
+    x = 0;
+    y = 0;
+    z = 0;
+    holdingObject = false;
 }
 
 double RoboticArm::getX() const {
@@ -29,7 +32,6 @@ void RoboticArm::release() {
 }
 
 void RoboticArm::move(double newX, double newY, double newZ) {
-    // Las coordenadas indican la nueva posicion absoluta del brazo.
     x = newX;
     y = newY;
     z = newZ;
